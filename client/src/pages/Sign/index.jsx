@@ -10,7 +10,9 @@ const Sign = ({ isSignUp }) => {
 			</header>
 			<section className='px-6 py-8 sm:max-w-3xl sm:m-auto'>
 				<div className='flex gap-6 mb-6'>
-					<img src='images/red-arrow-left.svg' />
+					<a className='flex items-center' href='/'>
+						<img src='images/red-arrow-left.svg' />
+					</a>
 					<h1 className='text-xl font-bold'>{ isSignUp ? 'Crie sua conta' : 'Entre na sua conta' }</h1>
 				</div>
 				<div className='space-y-3'>
