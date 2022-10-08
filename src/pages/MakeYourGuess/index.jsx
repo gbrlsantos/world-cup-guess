@@ -1,19 +1,19 @@
 import React from 'react';
 
-const Profile = () => {
+const MakeYourGuess = () => {
 	return (
 		<div>
 			<header className='bg-red-500 py-6 px-5'>
 				<div className='flex justify-between mb-16'>
 					<img src='images/white-redish-logo.svg' className='w-20' />
+					<img src='images/profile-white.svg' />
 				</div>
 				<div className='space-y-8'>
-					<img src='images/white-arrow-left.svg' />
-					<h1 className='text-xl text-white font-bold pb-3'>Bruno Bertolini</h1>
+					<span className='text-white'>Olá, Bruno!</span>
+					<h1 className='text-2xl text-white font-bold pb-3'>Qual é o seu palpite?</h1>
 				</div>
 			</header>
 			<main className='py-10 px-5 space-y-5'>
-				<h2 className='text-xl text-red-500 font-bold pb-3'>Seus palpites</h2>
 				<section className='flex w-full gap-10 justify-center'>
 					<img src='images/alt-red-arrow-left.svg' />
 					<p className='font-bold'>20 de novembro</p>
@@ -24,13 +24,9 @@ const Profile = () => {
 					<div className='flex justify-center items-center gap-2'>
 						<p className='text-grey-700'>CAT</p>
 						<img src='images/flags/cat.png' className='w-10 h-10'/>
-						<div className='flex justify-center items-center bg-[#fde4eb] w-10 h-10 rounded-full'>
-							<p className='font-bold text-red-300'>1</p>
-						</div>
+						<input type='text' className='font-bold text-red-300 placeholder-red-300 w-10 h-10 bg-[#fde4eb] text-center' placeholder='-' />
 						<p className='font-bold text-red-300'>x</p>
-						<div className='flex justify-center items-center bg-[#fde4eb] w-10 h-10 rounded-full'>
-							<p className='font-bold text-red-300'>1</p>
-						</div>
+						<input type='text' className='font-bold text-red-300 placeholder-red-300 w-10 h-10 bg-[#fde4eb] text-center' placeholder='-' />
 						<img src='images/flags/equ.png' className='w-10 h-10'/>
 						<p className='text-grey-700'>EQU</p>
 					</div>
@@ -40,4 +36,4 @@ const Profile = () => {
 	);
 };
 
-export default Profile;
+export default MakeYourGuess;

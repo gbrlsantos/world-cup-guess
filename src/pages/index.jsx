@@ -6,6 +6,7 @@ import {
 
 import Home from './Home';
 import Login from './Login';
+import MakeYourGuess from './MakeYourGuess';
 import Profile from './Profile';
 import SignUp from './SignUp';
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 	{
 		path: '/profile',
 		element: <Profile />
+	},
+	{
+		path: '/make-your-guess',
+		element: <MakeYourGuess />
 	}
 ]);
 
