@@ -5,10 +5,9 @@ import {
 } from 'react-router-dom';
 
 import Home from './Home';
-import Login from './Login';
+import Sign from './Sign';
 import MakeYourGuess from './MakeYourGuess';
 import Profile from './Profile';
-import SignUp from './SignUp';
 
 const router = createBrowserRouter([
 	{
@@ -17,11 +16,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/login',
-		element: <Login />
+		element: <Sign />
 	},
 	{
 		path: '/signup',
-		element: <SignUp />
+		element: <Sign isSignUp={ true } />
 	},
 	{
 		path: '/profile',

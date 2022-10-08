@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const GameCard = ({ timeA, timeB, match }) => {
+const GameCard = ({ timeA, timeB, match, isEditable }) => {
 	return(
 		<div className='py-5 px-5 space-y-5 max-w-2xl m-auto'>
 			<section className='flex w-full gap-10 justify-center'>
@@ -18,9 +18,17 @@ const GameCard = ({ timeA, timeB, match }) => {
 						{timeA.slug}
 					</p>
 					<img src={`images/flags/${timeA.slug}.png`} className='w-10 h-10'/>
-					<input type='text' className='font-bold text-red-300 placeholder-red-300 w-10 h-10 bg-[#fde4eb] text-center' placeholder='-' />
+					{ isEditable ? <input type='text' className='font-bold text-red-300 placeholder-red-300 w-10 h-10 bg-[#fde4eb] text-center' placeholder='-' /> :
+						<div className='flex justify-center items-center bg-[#fde4eb] w-10 h-10 rounded-full'>
+							<p className='font-bold text-red-300'>{timeA.guess}</p>
+						</div>
+					}
 					<p className='font-bold text-red-300'>x</p>
-					<input type='text' className='font-bold text-red-300 placeholder-red-300 w-10 h-10 bg-[#fde4eb] text-center' placeholder='-' />
+					{ isEditable ? <input type='text' className='font-bold text-red-300 placeholder-red-300 w-10 h-10 bg-[#fde4eb] text-center' placeholder='-' /> :
+						<div className='flex justify-center items-center bg-[#fde4eb] w-10 h-10 rounded-full'>
+							<p className='font-bold text-red-300'>{timeA.guess}</p>
+						</div>
+					}
 					<img src={`images/flags/${timeB.slug}.png`} className='w-10 h-10'/>
 					<p className='text-grey-700'>
 						{timeB.slug}
@@ -34,7 +42,12 @@ const GameCard = ({ timeA, timeB, match }) => {
 GameCard.propTypes = {
 	timeA: PropTypes.object.isRequired,
 	timeB: PropTypes.object.isRequired,
-	match: PropTypes.object.isRequired
+	match: PropTypes.object.isRequired,
+	isEditable: PropTypes.bool
+};
+
+GameCard.defaultProps = {
+	isEditable: false
 };
 
 export default GameCard;
