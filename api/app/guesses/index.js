@@ -1,14 +1,18 @@
+import jwt from 'jsonwebtoken';
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const create = async ctx => {
+	const [ type, token ] = ctx.headers.authorization.split(' ');
+	
+	const data = jwt.verify(token, process.env.JWT_SECRET);
 
 	if (!ctx.request.body.homeTeamScore && !ctx.request.body.awayTeamScore) {
 		 ctx.status = 400;
 		 return;
 	}
 
-	const userId = 'bd39e672-3ae3-4266-b3bd-0ffabb82f4b1';
+	const userId = data.sub;
 	const { gameId } = ctx.request.body;
 	const homeTeamScore = parseInt(ctx.request.body.homeTeamScore);
 	const awayTeamScore = parseInt(ctx.request.body.awayTeamScore);

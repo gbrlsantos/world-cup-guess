@@ -1,23 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputGroup = ({ type, label, placeholder }) => {
+const InputGroup = ({ name, label, error, ...props }) => {
 	return (
 		<section>
 			<label className='text-sm text-grey-500 font-bold'>{ label }</label>
 			<input
-				placeholder={ placeholder }
-				className='w-full border border-grey-500 rounded-2xl p-3 mt-2'
-				type={ type }
+				{...props}
+				className={`w-full border border-grey-500 rounded-2xl p-3 mt-2 ${error && 'border-red-600'}`}
+				name={name}
 			/>
+			<span className='p-2 text-sm text-red-600 font-bold'>{error}</span>
 		</section>
 	);
 };
 
 InputGroup.propTypes = {
+	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	placeholder: PropTypes.string.isRequired,
-	type: PropTypes.string
+	error: PropTypes.object
 };
 
 InputGroup.defaultProps = {
